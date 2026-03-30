@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lebaran Seru - Web Game</title>
+    
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database-compat.js"></script>
+</head>
+<body>
+
+    <div id="login-page" class="container">
+        <h1 class="title">Selamat Datang 🌙</h1>
+        <div class="login-box">
+            <input type="text" id="login-usn" placeholder="Username" autocomplete="off">
+            <input type="password" id="login-pw" placeholder="Password">
+            <button onclick="handleLogin()">Masuk</button>
+            <p>Login dulu gais <span id="secret-dot" class="dot">•</span></p>
+        </div>
+
+        <div id="admin-panel" class="hidden">
+            <hr>
+            <h3>Panel Admin 🛠️</h3>
+            <p style="font-size: 11px;">Daftarkan akun baru di sini</p>
+            <input type="text" id="new-usn" placeholder="Username Baru">
+            <input type="password" id="new-pw" placeholder="Password Baru">
+            <label style="display:block; font-size:11px; margin-top:5px;">Berlaku Sampai:</label>
+            <input type="date" id="expiry-date">
+            <button onclick="createAccount()" style="background-color: #2e7d32; color: white;">Simpan Akun</button>
+        </div>
+    </div>
+
+    <div id="main-dashboard" class="container hidden">
+        
+        <div id="lebaran-popup" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closePopup()">&times;</span>
+                <h2 style="margin-top: 0;">🌙 Minal Aidin Wal Faizin</h2>
+                <p>Mohon Maaf Lahir dan Batin</p>
+                <button onclick="closePopup()">Siap!</button>
+            </div>
+        </div>
+
+        <h1 class="title">Pilih Game Seru</h1>
+        <div class="game-selection" style="display: flex; gap: 10px; justify-content: center;">
+            <button onclick="showGame('tictactoe')">🎮 Tic Tac Toe</button>
+            <button onclick="showGame('tebak')">❓ Tebak-tebakan</button>
+        </div>
+
+        <div id="game-area" class="game-box" style="margin-top: 20px; min-height: 200px;">
+            <p>Klik salah satu tombol game di atas!</p>
+        </div>
+        
+        <button onclick="location.reload()" style="background-color: #c62828; color: white; margin-top: 30px; font-size: 12px;">Keluar / Logout</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
